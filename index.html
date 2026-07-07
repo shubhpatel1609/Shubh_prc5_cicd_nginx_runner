@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Lindgren — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #12151C;
+    --parchment: #EDEAE2;
+    --sage: #8FA98B;
+    --coral: #E2795A;
+    --slate: #8A93A3;
+    --line: rgba(237,234,226,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* NAV */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(18,21,28,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .navlinks {
+    display: flex;
+    gap: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--slate);
+  }
+  .navlinks a {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  .navlinks a:hover { color: var(--coral); }
+  .navlinks a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1px;
+    background: var(--coral);
+    transition: width 0.25s ease;
+  }
+  .navlinks a:hover::after { width: 100%; }
+
+  /* HERO */
+  .hero {
+    padding: 140px 0 100px;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--sage);
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--coral);
+  }
+  .hero p {
+    max-width: 480px;
+    margin-top: 24px;
+    color: var(--slate);
+    font-size: 17px;
+  }
+  .hero-cta {
+    margin-top: 36px;
+    display: flex;
+    gap: 16px;
+  }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 12px 22px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  .btn.primary {
+    background: var(--coral);
+    color: var(--ink);
+    border-color: var(--coral);
+  }
+  .btn.primary:hover { background: #ec8a6d; }
+  .btn.ghost:hover { border-color: var(--parchment); }
+
+  /* SECTIONS */
+  section { padding: 90px 0; border-top: 1px solid var(--line); }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+
+  .about p {
+    color: var(--slate);
+    max-width: 560px;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .about strong { color: var(--parchment); font-weight: 500; }
+
+  /* WORK */
+  .work-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    gap: 24px;
+  }
+  .work-item:last-child { border-bottom: none; }
+  .work-title {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 500;
+  }
+  .work-meta {
+    color: var(--slate);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .work-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+
+  /* CONTACT / FOOTER */
+  footer {
+    padding: 90px 0 60px;
+    border-top: 1px solid var(--line);
+  }
+  footer h2 { max-width: 460px; }
+  .contact-links {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .contact-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--parchment);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-links a:hover {
+    color: var(--coral);
+    border-color: var(--coral);
+  }
+  .foot-note {
+    margin-top: 70px;
+    color: var(--slate);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 600px) {
+    .navlinks { display: none; }
+    .hero { padding: 100px 0 70px; }
+    .work-item { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">ML</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">PRODUCT DESIGNER — BASED REMOTE</div>
+    <h1>I design tools<br>that get out of<br><em>your way.</em></h1>
+    <p>Maya Lindgren. Ten years making interfaces for people who'd rather be doing anything else than staring at a screen — so I try to make the screen part quick, clear, and quiet.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn primary">See the work</a>
+      <a href="#contact" class="btn ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="label">01 — ABOUT</div>
+    <h2>A little about how I work.</h2>
+    <p>I spend most of my time in the gap between <strong>what a system can do</strong> and <strong>what a person actually needs</strong>. That usually means fewer screens, not more — cutting until only the necessary decisions are left.</p>
+    <p>Before design, I studied cognitive science, which mostly taught me that people are far better at recognizing than recalling. Every interface I build tries to respect that.</p>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="label">02 — SELECTED WORK</div>
+    <div class="work-item">
+      <div>
+        <div class="work-title">Fieldnote</div>
+        <div class="work-meta">Offline-first note capture for research teams</div>
+      </div>
+      <div class="work-year">2025</div>
+    </div>
+    <div class="work-item">
+      <div>
+        <div class="work-title">Harborlight</div>
+        <div class="work-meta">Scheduling system for small clinics</div>
+      </div>
+      <div class="work-year">2024</div>
+    </div>
+    <div class="work-item">
+      <div>
+        <div class="work-title">Quiet Ledger</div>
+        <div class="work-meta">Personal finance app with no dashboards</div>
+      </div>
+      <div class="work-year">2023</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="label">03 — CONTACT</div>
+    <h2>Have a project worth doing well? Let's talk.</h2>
+    <div class="contact-links">
+      <a href="mailto:hello@mayalindgren.com">hello@mayalindgren.com</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Read.cv</a>
+    </div>
+    <div class="foot-note">© 2026 Maya Lindgren. Built with plain HTML and a little restraint.</div>
+  </div>
+</footer>
+
+</body>
+</html>
